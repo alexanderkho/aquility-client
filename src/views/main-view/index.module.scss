@@ -1,0 +1,14 @@
+
+
+.main-view {
+  display: inline;
+  height: 100%;
+  width: 100%;
+  background-color: #ebf1f5;
+  border-right: 1px solid #5C7080;
+  overflow: auto;
+  scrollbar-width: none; // Firefox
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

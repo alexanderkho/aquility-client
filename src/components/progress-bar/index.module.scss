@@ -1,0 +1,18 @@
+.progress-bar {
+  position: relative;
+  height: 20px;
+  width: inherit;
+  border: 1px solid #0e5a8a;
+  background-color: #f5f8fa;
+}
+
+.bar-title {
+  position: absolute;
+}
+
+.bar-filler {
+  position: absolute;
+  background: #d1e8e2;
+  height: 100%;
+  transition: width 0.2s ease-in;
+}

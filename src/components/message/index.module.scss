@@ -1,0 +1,11 @@
+@import "../../shared.scss";
+
+.message-toolbar-body {
+  width: 100%;
+  height: $panel-toobar-height;
+  display: flex;
+  justify-content: left;
+  margin: 0;
+  padding: 0;
+  border: solid 1px red;
+}

@@ -1,0 +1,16 @@
+@import "../../shared.scss";
+
+.compound-toolbar-body {
+  width: 100%;
+  height: $panel-toobar-height;
+  display: grid;
+  grid-template-columns: 40px 40px 40px 1fr;
+  margin: 0;
+  padding: 0;
+  border: solid 1px red;
+}
+
+.compound-search-box {
+  height: $panel-toobar-button-side-length;
+  margin: auto 5px auto 5px;
+}

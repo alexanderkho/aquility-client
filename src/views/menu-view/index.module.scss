@@ -1,0 +1,70 @@
+@import "../../shared.scss";
+
+.menu-view {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: $menu-bar-width auto;
+  overflow: auto;
+}
+
+.menu-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: inherit;
+  width: inherit;
+  background-color: #5c7080;
+}
+
+@mixin button-group-container {
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  border: 1px solid cyan;
+}
+
+.button-group-container-top {
+  @include button-group-container;
+  justify-content: flex-start;
+  height: 75%;
+}
+
+.button-group-container-bottom {
+  @include button-group-container;
+  justify-content: flex-end;
+  height: 25%;
+}
+
+.logo-container {
+  height: $menu-bar-button-width;
+  width: $menu-bar-button-width;
+  margin: 10px auto 0px auto;
+  border-radius: 5px;
+  background: white;
+  padding: 3px;
+}
+
+.button-container-top {
+  height: $menu-bar-button-width;
+  width: $menu-bar-button-width;
+  margin: 10px auto 0px auto;
+}
+
+.button-container-bottom {
+  height: $menu-bar-button-width;
+  width: $menu-bar-button-width;
+  margin: 0px auto 10px auto;
+}
+
+.menu-panel {
+  height: 100%;
+  width: 100%;
+  background-color: #ebf1f5;
+  border-right: 1px solid #5c7080;
+  overflow: auto;
+  scrollbar-width: none; // Firefox
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

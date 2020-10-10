@@ -1,0 +1,30 @@
+@import "../../shared.scss";
+
+.calibration-toolbar {
+  width: 100%;
+  height: $panel-toobar-height;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  border: solid 1px red;
+}
+
+.calibration-spinner {
+  margin-left: 10px;
+}
+
+.calibration-label {
+  font-size: 15px;
+}
+
+.edit-box {
+  width: 90px;
+}
+
+.profile-toolbar {
+  width: 100%;
+  height: $panel-toobar-height;
+  display: grid;
+  grid-template-columns: 1fr 40px 40px 40px;
+  border: solid 1px red;
+}

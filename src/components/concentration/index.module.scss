@@ -1,0 +1,21 @@
+@import "../../shared.scss";
+
+.concentration-toolbar-body {
+  width: 100%;
+  height: $panel-toobar-height;
+  display: flex;
+  justify-content: left;
+  margin: 0;
+  padding: 0;
+  border: solid 1px red;
+}
+
+.concentration-chart-container {
+  background-color: white;
+  border: solid 1px red;
+}
+
+.concentration-map-container {
+  width: 100%;
+  height: 400px;
+}

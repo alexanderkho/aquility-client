@@ -1,0 +1,10 @@
+.panel-container {
+  height: 100%;
+  width: 100%;
+  background-color: #ebf1f5;
+  overflow: auto;
+  scrollbar-width: none; // Firefox
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
