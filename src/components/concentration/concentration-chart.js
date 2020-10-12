@@ -8,6 +8,7 @@ import {
   Line,
   Label,
   ResponsiveContainer,
+  Tooltip,
 } from "recharts";
 
 export function ConcentrationChart({ data }) {
@@ -34,6 +35,7 @@ export function ConcentrationChart({ data }) {
             offset: -5,
           }}
         />
+        <Tooltip labelFormatter={(s) => `${s} seconds`} />
         <Legend />
         <Line
           dataKey="Benzene"

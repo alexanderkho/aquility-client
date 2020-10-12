@@ -12,8 +12,7 @@ const socket = io("http://127.0.0.1:5000", { autoConnect: false });
 export function ConcentrationPanel() {
   let initTime = useRef();
   const [listening, setListening] = useState(false);
-  const [concData, setConcData] = useState([]);
-  const [locData, setLocData] = useState([]);
+  const [data, setData] = useState({ concentration: [], location: [] });
 
   const onPlayButtonPress = () => {
     if (!listening) {
@@ -29,16 +28,27 @@ export function ConcentrationPanel() {
 
   useEffect(() => {
     socket.on("data", (payload) => {
-      const { time, Benzene, Acetone } = payload;
+      const { time, Benzene, Acetone, latitude, longitude } = payload;
       const newConcData = {
         time: (time - initTime.current) / 1000,
         Benzene,
         Acetone,
       };
-      setConcData((prev) => [...prev, newConcData]);
+      const newLocData = {
+        lat: latitude,
+        lng: longitude,
+      };
+      setData((prev) => {
+        if (prev.location.length > 20) {
+          prev.location.shift();
+        }
+        return {
+          location: [...prev.location, newLocData],
+          concentration: [...prev.concentration, newConcData],
+        };
+      });
     });
   }, []);
-
   return (
     <>
       <Panel title="CONCENTRATION TIME-SERIES" showFavorited={false}>
@@ -47,13 +57,16 @@ export function ConcentrationPanel() {
           listening={listening}
         />
         <div className={styles["concentration-chart-container"]}>
-          <ConcentrationChart data={concData} />
+          <ConcentrationChart data={data.concentration} />
         </div>
       </Panel>
       <Panel title="CONCENTRATION MAP" showFavorited={false}>
-        <ConcentrationToolbar />
-        <div className={styles["concentration-chart-container"]}>
-          <ConcentrationMap />
+        <ConcentrationToolbar
+          onPlayButtonPress={onPlayButtonPress}
+          listening={listening}
+        />
+        <div className={styles["concentration-map-container"]}>
+          <ConcentrationMap data={data.location} />
         </div>
       </Panel>
     </>
