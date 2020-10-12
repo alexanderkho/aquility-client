@@ -6,8 +6,9 @@ import { ConcentrationToolbar } from "./concentration-toolbar";
 import { ConcentrationChart } from "./concentration-chart";
 import { ConcentrationMap } from "./concentration-map";
 import styles from "./index.module.scss";
+import { socketHost } from "./utils";
 
-const socket = io("http://127.0.0.1:5000", { autoConnect: false });
+const socket = io(socketHost, { autoConnect: false });
 
 export function ConcentrationPanel() {
   let initTime = useRef();
