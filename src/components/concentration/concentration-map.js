@@ -1,6 +1,6 @@
 import React from "react";
 import { Map, Polyline, GoogleApiWrapper } from "google-maps-react";
-import { googleApiKey } from "./utils";
+import { googleApiKey } from "./apiKey.js";
 
 function ConcentrationMap({ google, data }) {
   const containerStyle = {
